@@ -4,37 +4,38 @@
 package consts
 
 import (
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/vms/platformvm/warp"
-	"github.com/ava-labs/hypersdk/chain"
-	"github.com/ava-labs/hypersdk/codec"
-	"github.com/ava-labs/hypersdk/consts"
+    "github.com/ava-labs/avalanchego/ids"
+    "github.com/ava-labs/avalanchego/vms/platformvm/warp"
+    "github.com/ava-labs/hypersdk/chain"
+    "github.com/ava-labs/hypersdk/codec"
+    "github.com/ava-labs/hypersdk/consts"
 )
 
 const (
-	// TODO: choose a human-readable part for your hyperchain
-	HRP = ""
-	// TODO: choose a name for your hyperchain
-	Name = ""
-	// TODO: choose a token symbol
-	Symbol = ""
+    // TODO: choose a human-readable part for your hyperchain
+    HRP = "Calee"
+    // TODO: choose a name for your hyperchain
+    Name = "Calee"
+    // TODO: choose a token symbol
+    Symbol = "CSG"
 )
 
 var ID ids.ID
 
 func init() {
-	b := make([]byte, consts.IDLen)
-	copy(b, []byte(Name))
-	vmID, err := ids.ToID(b)
-	if err != nil {
-		panic(err)
-	}
-	ID = vmID
+    b := make([]byte, consts.IDLen)
+    copy(b, []byte(Name))
+    vmID, err := ids.ToID(b)
+    if err != nil {
+        panic(err)
+    }
+    ID = vmID
 }
 
 // Instantiate registry here so it can be imported by any package. We set these
 // values in [controller/registry].
 var (
-	ActionRegistry *codec.TypeParser[chain.Action, *warp.Message, bool]
-	AuthRegistry   *codec.TypeParser[chain.Auth, *warp.Message, bool]
+    ActionRegistry *codec.TypeParser[chain.Action, *warp.Message, bool]
+    AuthRegistry   *codec.TypeParser[chain.Auth, *warp.Message, bool]
 )
+
